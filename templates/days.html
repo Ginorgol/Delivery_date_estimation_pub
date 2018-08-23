@@ -1,0 +1,115 @@
+
+{% extends "bootstrap/base.html" %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Days
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<!-- <link rel="stylesheet" href="{{url_for('.static', filename='signin.css')}}">
+ -->{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="https://bootstrapious.com/tutorial/sidebar/style.css">
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: black;
+}
+
+
+
+
+</style>
+
+     <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar" class="active">
+            <div class="sidebar-header">
+                <h3>View Orders arriving in next</h3>
+            </div>
+        <div class="container">
+      <form class="form-signin" method="POST" action="/days">
+        <br><br>
+       <input type="text" id="fname" name="text" placeholder="Number of days" style="width:215px">
+    </input>
+    <br>
+    <br>
+        
+        <button class="btn btn-lg btn-primary btn-block" type="submit" style="width:215px">View</button>
+      </form>
+
+    </div>
+            <br><br><br><br><br><br><br>    <br>        <br><br><br><br><br><br><br>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="mailto:kiquance21@gmail.com" class="download" style="color:black">Contact Us</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="btn btn-success" style="border-radius:20px;width:150px;margin-top:6px;float: left ">
+                        <i class="fas fa-align-left"></i>
+                        <span>View Orders</span>
+                    </button>
+                      <a href="#" class="navbar-left"><img src="https://pbs.twimg.com/profile_images/1002913116831662080/g3vjCVsk_400x400.jpg" id="dell_image" style="width:40px;height:40px;border-radius:22px;position: absolute;left:590px" ></a>
+
+                   <a class="btn btn-success" href="/addorder"  style="margin:6px;width:150px;border-radius:20px;float: right; "type="submit">Add Order</a>
+                </div>
+            </nav>
+            <div class ="cover_page_dell" id="temp_dell" style="content: url(http://www.mec.ph/horizon/wp-content/uploads/2014/02/thepowertodomore-940x623.jpg);width:1280px;height:530px">
+              
+            </div>
+    </div>
+  
+     
+          
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+          //
+            $('#sidebarCollapse').on('click', function () {
+                // var a= $('#sidebar').width()
+                // alert(a)
+                $('#sidebar').toggleClass('active');
+                var a=$('#temp_dell').width()
+                if(a==1280){
+                  $('#temp_dell').width(1030);
+                  $('#dell_image').css({left: 480, position:'absolute'});
+                }
+                else{
+                  $('#temp_dell').width(1280);
+                  $('#dell_image').css({left: 590, position:'absolute'});
+
+                }
+
+
+
+
+            });
+
+
+        });
+    </script>
+{% endblock %}

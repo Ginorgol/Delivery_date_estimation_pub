@@ -1,0 +1,54 @@
+
+{% extends "bootstrap/base.html" %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Days
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<link rel="stylesheet" href="{{url_for('.static', filename='signin.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<body>
+  
+    <style>
+    input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    </style>
+     
+          <div class="container">
+
+          <form class="form-signin" method="POST" action="/addorder">
+            <label>Order Name</label>
+            <input type="text" name="ordername" placeholder="Name"></input>
+            <label>Seller address</label>
+            <input type="text" name="source_address" placeholder="address"></input>
+            <label>User address</label>
+            <input type="text" name="dest_address" placeholder="address"></input>
+            <br>
+            <br>
+<!--              <button class="btn btn-lg btn-primary btn-block" type="submit" name="btn" value="Estimate">Estimate Delivery</button>
+ -->            <br><br>
+            <button class="btn btn-lg btn-success btn-block" type="submit" name="btn" value="Submit">Submit</button>
+          </form>
+
+        </div> 
+
+</body>
+
+
+          
+      
+{% endblock %}

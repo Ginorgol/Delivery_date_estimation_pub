@@ -1,0 +1,92 @@
+
+{% extends "bootstrap/base.html" %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+{{super()}}
+<!-- <link rel="stylesheet" href="{{url_for('.static', filename='signin.css')}}">
+ -->{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="https://bootstrapious.com/tutorial/sidebar/style.css">
+<style>
+input[type=text], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+</style>
+
+     <div class="wrapper">
+        <!-- Sidebar  -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3>Your Orders</h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                {% for k in orders2 %}
+                {% set counter=(counter | default(0))+1 %}
+                <li class="active">
+                    <button onclick="myFunction()" class="btn btn-primary" aria-expanded="false" class="dropdown-toggle" style="margin:5px;
+                    width:220px;margin-left:20px;box-shadow:10px #8756B6" id = counter>Product : {{k[1]}} <br> ETA : {{k[2]}} </button>
+                </li>
+                {% endfor %}
+            </ul>
+            <br><br><br><br><br><br><br><br><br><br><br><br>
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="mailto:kiquance21@gmail.com" class="download" style="color: black">Contact Us</a>
+                </li>
+            
+            </ul>
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                    <a class="btn btn-success" href="/addorder"  style="margin:6px;width:150px;border-radius:20px;float: right; "type="submit">Add Order</a>
+                </div>
+            </nav>
+           <div class ="Connectivity" id="temp_dell" style="content: url(https://images.adsttc.com/media/images/5881/2cee/e58e/ceee/4400/005d/original/globalimmigration.gif?1484860652);width:500px;height:300px;position: relative;left:300px;top:40px">
+        </div>
+    </div>
+  
+          
+          
+          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+        });
+
+        function myFunction() {
+          alert(this)
+            }
+
+    </script>
+{% endblock %}
