@@ -12,7 +12,7 @@ from sklearn.cross_validation import train_test_split
 from djisktra import Heap,Graph
 from random import randint
 import datetime as dt
-gmaps = googlemaps.Client(key="AIzaSyDu7i1Zy6xwtRvCiH4cCqOCkouPju4rk2Y")
+gmaps = googlemaps.Client(key=Your googlemaps api key)
 now = datetime.now()
 
 #try to build a graph with the centres you have
